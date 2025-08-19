@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="JRpOF87UzpIagVKVepm1DRO3Yk2MNWSTnRjFZNYhEa0" />
+    <title>Telmo Quinteiro - Junior Software Developer</title>
+    <link rel="icon" type="image/x-icon" href="media/TQ.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(20, 25, 35, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f5b642ab, #f5b642ab);
+            color: black;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin: 0 auto 20px;
+            background: #2a2a3e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #888;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .job-title {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .about {
+            margin-bottom: 40px;
+        }
+
+        .about h2 {
+            color: #64b5f6;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #b0b0b0;
+        }
+
+        .social-links {
+            margin-bottom: 40px;
+        }
+
+        .social-links h2 {
+            color: #64b5f6;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: rgba(40, 45, 60, 0.8);
+            border-radius: 15px;
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(100, 181, 246, 0.2);
+            border-color: #64b5f6;
+            background: rgba(100, 181, 246, 0.1);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link span {
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .cv-download {
+            text-align: center;
+        }
+
+        .cv-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f5b642, #f5b642);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(246, 183, 100, 0.4);
+        }
+
+        .cv-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(246, 183, 100, 0.4);
+            background: linear-gradient(135deg, #f5b642, #f5b642);
+        }
+
+        .cv-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .job-title {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-img">
+                <img src="media/work.png" alt="Telmo Quinteiro Lopes" style="width: 100%; height: 100%; border-radius: 50%;">
+            </div>
+            <h1 class="name">Telmo Quinteiro</h1>
+            <p class="job-title">Junior Software Developer</p>
+        </div>
+        
+        <div class="content">
+            <section class="about">
+                <h2>About Me</h2>
+                <p>
+                    Welcome to my personal website! I'm a passionate Junior Software Developer with a love for learning, gaming development and object oriented programming, focused in Java, C++ and C#.
+                </p>
+                <p>
+                    I am always striving to write clean, efficient and secure code.
+                </p>
+                <p>
+                    When I'm not coding, you can find me playing videogames, basketball or just relaxing with a good series, movie or book.
+                </p>
+            </section>
+            
+            <section class="social-links">
+                <h2>Socials</h2>
+                <div class="links-grid">
+                    <a href="https://github.com/terumoo" class="social-link" target="_blank">
+                        <div class="social-icon"><img src="media/GitHub_icon.svg" style="width: 100%; height: 100%; border-radius: 50%;"></div>
+                        <span>GitHub</span>
+                    </a>
+                    
+                    <a href="https://gitlab.com/telmoquinteiro" class="social-link" target="_blank">
+                        <div class="social-icon"><img src="media/GitLab_icon.svg" style="width: 100%; height: 100%; border-radius: 50%;"></div>
+                        <span>GitLab</span>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/terumoo" class="social-link" target="_blank">
+                        <div class="social-icon"><img src="media/LinkedIn_icon.svg" style="width: 100%; height: 100%; border-radius: 50%;"></div>
+                        <span>LinkedIn</span>
+                    </a>
+                    
+                    <a href="https://instagram.com/terumoo" class="social-link" target="_blank">
+                        <div class="social-icon"><img src="media/Instagram_icon.png" style="width: 100%; height: 100%; border-radius: 50%;"></div>
+                        <span>Instagram</span>
+                    </a>
+                    
+                    <a href="mailto:telmoquinteiro@gmail.com" class="social-link">
+                        <div class="social-icon"><img src="media/Gmail_icon.svg" style="width: 100%; height: 100%; border-radius: 50%;"></div>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </section>
+            
+            <section class="cv-download">
+                <a href="#" class="cv-btn" onclick="downloadCV()">
+                    <span>📄</span>
+                    Download CV
+                </a>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function downloadCV() {
+            window.open('cv/cv august 2025.pdf', '_blank');
+        }
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialLinks = document.querySelectorAll('.social-link');
+            
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(135deg, #64b5f6, #42a5f5)';
+                    this.style.color = 'white';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(40, 45, 60, 0.8)';
+                    this.style.color = '#e0e0e0';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
